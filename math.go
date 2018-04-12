@@ -46,16 +46,6 @@ func Dist(v1, v2 Vec) float64 {
 	return math.Sqrt(math.Pow(v1.X-v2.X, 2) + math.Pow(v1.Y-v2.Y, 2))
 }
 
-// Unit returns a unit-size vector in the same direction
-// Returns zero on zero
-func Unit(v Vec) Vec {
-	if v == zero {
-		return zero
-	}
-	mag := Mag(v)
-	return Div(v, mag)
-}
-
 // Norm returns a counter-clockwise points normal
 func Norm(v Vec) Vec {
 	return Vec{-v.Y, v.X}

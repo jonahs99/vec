@@ -59,3 +59,23 @@ func (v *Vec) Div(a float64) *Vec {
 func Div(v1 Vec, a float64) Vec {
 	return Vec{v1.X * a, v1.Y * a}
 }
+
+// Unit makes the vector unit-size
+// Zero vector will remain
+func (v *Vec) Unit() *Vec {
+	if *v != zero {
+		mag := Mag(*v)
+		v.Div(mag)
+	}
+	return v
+}
+
+// Unit returns a unit-size vector in the same direction
+// Returns zero on zero
+func Unit(v Vec) Vec {
+	if v == zero {
+		return zero
+	}
+	mag := Mag(v)
+	return Div(v, mag)
+}
