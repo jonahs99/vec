@@ -51,6 +51,14 @@ func Norm(v Vec) Vec {
 	return Vec{-v.Y, v.X}
 }
 
+// Reflect returns v1 reflected across n (assumed to be a UNIT vector!)
+func Reflect(v1, n Vec) Vec {
+	// r = v1 - 2(v1 . n)n
+	n.Times(2 * Dot(v1, n))
+	v1.Sub(n)
+	return v1
+}
+
 // Truncate returns a vector of at maximum v
 func Truncate(v Vec, a float64) Vec {
 	mag := Mag(v)
