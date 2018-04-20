@@ -36,6 +36,18 @@ func Times(v Vec, a float64) Vec {
 	return Vec{v.X * a, v.Y * a}
 }
 
+// Neg makes the vector negative
+func (v *Vec) Neg() *Vec {
+	v.X = -v.X
+	v.Y = -v.Y
+	return v
+}
+
+// Neg returns the vector negative
+func Neg(v Vec) Vec {
+	return Vec{-v.X, -v.Y}
+}
+
 // Sub subtracts the components from another Vec
 func (v *Vec) Sub(v1 Vec) *Vec {
 	v.X -= v1.X
